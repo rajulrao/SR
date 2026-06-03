@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #fff5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin: 20px;
+        }
+        h1 {
+            color: #ff4d6d;
+            font-size: 24px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .btn {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            outline: none;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.3);
+        }
+        .btn:active {
+            transform: scale(0.95);
+        }
+        .btn:hover {
+            background-color: #ff2a51;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- This text changes with every click -->
+    <h1 id="romanticText">Hey! I made something small for you. Click below.. 😊</h1>
+    
+    <!-- The button -->
+    <button class="btn" id="nextBtn" onclick="changeMessage()">Click Here</button>
+</div>
+
+<script>
+    // Pure English romantic messages
+    const messages = [
+        "First of all.. thank you for coming into my life. ❤️",
+        "Your smile is honestly the solution to all my problems. Always stay happy!",
+        "I don't know how, but with each passing day, you become more and more special to me. 🥰",
+        "Whenever I talk to you, that automatically becomes the absolute best part of my day. ⏱️",
+        "I love everything about you, even the little things that make you.. You.",
+        "I don't think I can ever fully put into words what you mean to me..",
+        "But to put it simply.. I really, really like you 💖",
+        "Thank you for making every single moment so incredibly beautiful. You are my favorite person! ✨"
+    ];
+
+    let currentStep = 0;
+
+    function changeMessage() {
+        const textElement = document.getElementById("romanticText");
+        const btnElement = document.getElementById("nextBtn");
+
+        if (currentStep < messages.length) {
+            textElement.innerText = messages[currentStep];
+            currentStep++;
+            
+            if (currentStep === messages.length) {
+                btnElement.innerText = "Made with ❤️";
+            }
+        } else {
+            // Final message after the last click
+            textElement.innerText = "That's all I wanted to say.. now go ahead and send me a cute text! 😉";
+            btnElement.style.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
